@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-haskell-kubernetes-deployment
+  labels:
+    app: example-haskell-kubernetes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-haskell-kubernetes
+  template:
+    metadata:
+      labels:
+        app: example-haskell-kubernetes
+    spec:
+      containers:
+      - name: service-a
+        image: service-a:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9000
+      - name: service-b
+        image: service-b:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9001 

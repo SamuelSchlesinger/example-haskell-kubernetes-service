@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-haskell-kubernetes-service
+spec:
+  selector:
+    app: example-haskell-kubernetes
+  ports:
+    - protocol:
+      port: 8080
+      targetPort: 9000

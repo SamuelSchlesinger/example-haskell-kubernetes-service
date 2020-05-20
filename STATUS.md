@@ -20,3 +20,12 @@ where we have a number of replicas backing one conceptual service.
 
 I want to be able to easily construct microservices and network them in
 nice ways and, ideally, deploy them to some cloud platform.
+
+# Notes
+
+Service can create a virtual IP in cluster to act as a poor man's load
+balancer. In particular, it creates a stable hostname that you can use
+to access your dynamic set of pods, which may shift in IP identity.
+Services don't generally expose anything outside of the cluster.
+
+Services have NodePorts which are where they are exposed on the node.

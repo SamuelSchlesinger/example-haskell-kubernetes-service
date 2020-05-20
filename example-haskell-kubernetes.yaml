@@ -25,3 +25,17 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 9001 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-haskell-kubernetes-service
+spec:
+  selector:
+    app: example-haskell-kubernetes
+  ports:
+    - name: example-haskell-kubernetes-service-port
+      protocol: TCP
+      port: 9003 # within container, behind virtual IP
+      targetPort: 9000
+      nodePort: 8080

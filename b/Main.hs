@@ -14,4 +14,4 @@ import Control.Monad.Trans (liftIO)
 type API = "poke" :> Get '[JSON] Text
 
 main :: IO ()
-main = run 9001 $ serve @API Proxy $ pure "Hello from service-b :)"
+main = run 9001 $ serve @API Proxy $ pure "b"

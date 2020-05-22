@@ -1,2 +1,2 @@
-kubectl delete -f x.yaml
-kubectl delete -f y.yaml
+kubectl delete -f x.yaml --namespace=sgs
+kubectl delete -f y.yaml --namespace=sgs

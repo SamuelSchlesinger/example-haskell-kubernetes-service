@@ -18,4 +18,4 @@ Network topology (subnets, IP spaces, DNS, IP tables)
 
 0. What is /etc/resolv.conf?
 1. IP spaces, DNS
-2. How does K8s create 
+2. How does K8s manage its networking?

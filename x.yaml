@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-haskell-kubernetes-deployment
+  name: x-deployment
   labels:
-    app: example-haskell-kubernetes
+    app: x
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: example-haskell-kubernetes
+      app: x
   template:
     metadata:
       labels:
-        app: example-haskell-kubernetes
+        app: x
     spec:
       containers:
       - name: service-a
@@ -29,12 +29,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: example-haskell-kubernetes-service
+  name: x-service
 spec:
   selector:
-    app: example-haskell-kubernetes
+    app: x
   ports:
-    - name: example-haskell-kubernetes-service-port
+    - name: x-port
       protocol: TCP
       port: 9003 # within container, behind virtual IP
       targetPort: 9000

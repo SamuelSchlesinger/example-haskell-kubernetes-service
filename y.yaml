@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: y-deployment
+  labels:
+    app: yo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yo
+  template:
+    metadata:
+      labels:
+        app: yo
+    spec:
+      containers:
+      - name: service-c
+        image: service-c:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: y-service
+spec:
+  selector:
+    app: yo
+  ports:
+    - name: y-port
+      protocol: TCP
+      port: 9004 # within container, behind virtual IP
+      targetPort: 9000
+      nodePort: 30001
+  type: NodePort

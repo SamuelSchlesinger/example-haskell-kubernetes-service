@@ -1,3 +1,3 @@
 ./build.sh
 ./teardown.sh
-./buildup.sh
+./deploy.sh

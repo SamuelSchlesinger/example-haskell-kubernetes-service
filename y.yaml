@@ -20,6 +20,11 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 9000
+      - name: service-d
+        image: service-d:latest
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 9001
 ---
 apiVersion: v1
 kind: Service

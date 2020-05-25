@@ -1,5 +1,5 @@
 output=`curl localhost:30001/poke`
-if [[ $output == "\"cab\"" ]]
+if [[ $output == "\"cdab\"" ]]
 then
   echo "Test passed"
   exit 0

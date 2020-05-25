@@ -23,6 +23,14 @@ main = run 9000 $ serve @API Proxy $ do
   liftIO (try @SomeException $ httpLbs request manager) >>= \case
     Right response ->
       case decode (responseBody response) of
-        Just txt -> pure ("c" <> txt)
+        Just txt -> do
+          request <- liftIO $ parseRequest "http://localhost:9004/poke"
+          liftIO (try @SomeException $ httpLbs request manager) >>= \case
+            Right response' ->
+              case decode (responseBody response') of
+                Just txt' -> do
+                  pure ("c" <> txt' <> txt)
+                Nothing -> throwError err500
+            Left err -> throwError err500
         Nothing -> throwError err500
     Left err -> throwError err500
